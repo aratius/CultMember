@@ -9,7 +9,14 @@ public class OscReceiver : SingletonMonoBehaviour<OscReceiver>
 {
 
     public UnityEvent<string> onSign = new UnityEvent<string>();
+    [SerializeField] private int _defaultPort;
+
     private OscServer _server;
+
+    void Start()
+    {
+        this.Set(this._defaultPort);
+    }
 
     public void Set(int port)
     {

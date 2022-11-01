@@ -155,6 +155,7 @@ MonoBehaviour:
   onSign:
     m_PersistentCalls:
       m_Calls: []
+  _defaultPort: 10000
 --- !u!4 &136600823
 Transform:
   m_ObjectHideFlags: 0
