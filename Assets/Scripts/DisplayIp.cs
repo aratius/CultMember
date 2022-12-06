@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class DisplayIp : MonoBehaviour
 {
+    List<string> _ips = new List<string>();
+    int _crr = 0;
+
     void Start()
     {
         // ホスト名を取得する
@@ -19,13 +22,24 @@ public class DisplayIp : MonoBehaviour
         foreach (IPAddress address in adrList)
         {
             string addressStr = address.ToString();
-            if(Regex.IsMatch(addressStr, "[0-2]{0,1}[0-9]{1,2}.[0-2]{0,1}[0-9]{1,2}.[0-2]{0,1}[0-9]{1,2}.[0-2]{0,1}[0-9]{1,2}"))
+            if(Regex.IsMatch(addressStr, @"\d{1,3}(\.\d{1,3}){3}(/\d{1,2})?"))
             {
                 Debug.Log($"ip = {addressStr}");
-                ip = addressStr;
+                this._ips.Add(addressStr);
             }
         }
-        this.GetComponent<Text>().text = ip;
+        if(this._ips.Count > 0) this._Show();
+    }
+
+    public void Next()
+    {
+        this._crr++;
+        this._Show();
+    }
+
+    private void _Show()
+    {
+        this.GetComponent<Text>().text = this._ips[this._crr % this._ips.Count];
     }
 
 }

@@ -11,6 +11,8 @@ public class InstructionController : MonoBehaviour
   void Start()
   {
     OscReceiver.Instance.onSign.AddListener(this._onSign);
+    Sound.LoadSe("SitDown", "SitDown");
+    Sound.LoadSe("StandUp", "StandUp");
   }
 
   /// <summary>
@@ -35,10 +37,10 @@ public class InstructionController : MonoBehaviour
 
     } else if (address == "/standUp")
     {
-
+      Sound.PlaySe("StandUp");
     } else if (address == "/standDown")
     {
-
+      Sound.PlaySe("SitDown");
     } else {
       Debug.LogWarning("undefined instruction");
       return;

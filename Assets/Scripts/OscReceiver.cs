@@ -18,6 +18,10 @@ public class OscReceiver : SingletonMonoBehaviour<OscReceiver>
         this.Set(this._defaultPort);
     }
 
+    /// <summary>
+    /// set
+    /// </summary>
+    /// <param name="port"></param>
     public void Set(int port)
     {
         if(this._server != null) this._server.Dispose();
