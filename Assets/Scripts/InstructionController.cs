@@ -11,8 +11,12 @@ public class InstructionController : MonoBehaviour
   void Start()
   {
     OscReceiver.Instance.onSign.AddListener(this._onSign);
-    Sound.LoadSe("SitDown", "SitDown");
-    Sound.LoadSe("StandUp", "StandUp");
+    Sound.LoadSe("standUp", "standUp");
+    Sound.LoadSe("sitDown", "sitDown");
+    Sound.LoadSe("handsUp", "handsUp");
+    Sound.LoadSe("handsDown", "handsDown");
+    Sound.LoadSe("tutorial", "tutorial");
+    Sound.LoadSe("finish", "finish");
   }
 
   /// <summary>
@@ -23,24 +27,24 @@ public class InstructionController : MonoBehaviour
   {
     // TODO: 音再生
 
-    if(address == "/leftHandUp")
+    if(address == "/handsUp")
     {
-
-    } else if (address == "/leftHandDown")
+      Sound.PlaySe("handsUp");
+    } else if (address == "/handsDown")
     {
-
-    } else if (address == "/rightHandUp")
-    {
-
-    } else if (address == "/rightHandDown")
-    {
-
+      Sound.PlaySe("handsDown");
     } else if (address == "/standUp")
     {
-      Sound.PlaySe("StandUp");
-    } else if (address == "/standDown")
+      Sound.PlaySe("standUp");
+    } else if (address == "/sitDown")
     {
-      Sound.PlaySe("SitDown");
+      Sound.PlaySe("sitDown");
+    } else if(address == "/tutorial")
+    {
+      Sound.PlaySe("tutorial");
+    } else if (address == "/finish")
+    {
+      Sound.PlaySe("finish");
     } else {
       Debug.LogWarning("undefined instruction");
       return;
