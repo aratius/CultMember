@@ -45,7 +45,9 @@ public class InstructionController : MonoBehaviour
     } else if (address == "/finish")
     {
       Sound.PlaySe("finish");
-    } else {
+    } else if(address == "/stop") {
+      Sound.StopSe();
+    } {
       Debug.LogWarning("undefined instruction");
       return;
     };

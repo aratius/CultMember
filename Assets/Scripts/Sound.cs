@@ -182,4 +182,14 @@ public class Sound {
 
     return true;
   }
+
+  /// SEの停止
+  public static bool StopSe() {
+    return GetInstance()._StopSe();
+  }
+  bool _StopSe() {
+    _GetAudioSource(eType.Se).Stop();
+
+    return true;
+  }
 }
